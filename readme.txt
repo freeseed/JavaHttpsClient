@@ -1,6 +1,8 @@
 javac com/mkyong/client/HttpsClient.java
 
 
+Add on local
+
 java com.mkyong.client.HttpsClient "https://www.google.com/"
 java com.mkyong.client.HttpsClient "https://dth298067l:7002/console/login/LoginForm.jsp"
 
