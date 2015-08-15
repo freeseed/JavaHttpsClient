@@ -47,9 +47,23 @@ public class HttpsClient{
 			e.printStackTrace();
 		}
 	 */
-
-      //String https_url = "https://www.google.com/";
-	  String https_url = "https://dth298067l:7002/console/login/LoginForm.jsp";
+	  System.out.println("-------------------------------------");
+	  
+	  System.out.println(System.getProperty("java.home"));
+	  System.out.println(System.getProperty("javax.net.ssl.keyStoreType"));
+	  System.out.println(System.getProperty("javax.net.ssl.keyStore"));
+	  System.out.println(System.getProperty("Djavax.net.ssl.trustStoreType"));
+	  System.out.println(System.getProperty("javax.net.ssl.trustStore"));
+	  
+	  
+	  System.out.println("-------------------------------------");
+	  
+	  if (1==2){
+		return;  
+	  }
+	  
+      String https_url = "https://www.google.com/";
+	  //String https_url = "https://dth298067l:7002/console/login/LoginForm.jsp";
 	  
       URL url;
       try {
@@ -103,27 +117,27 @@ public class HttpsClient{
    }
 	
    private void print_content(HttpsURLConnection con){
-	if(con!=null){
-			
-	try {
-		
-	   System.out.println("****** Content of the URL ********");			
-	   BufferedReader br = 
-		new BufferedReader(
-			new InputStreamReader(con.getInputStream()));
+		if(con!=null){
 				
-	   String input;
+			try {
 				
-	   while ((input = br.readLine()) != null){
-	      System.out.println(input);
+			   System.out.println("****** Content of the URL ********");			
+			   BufferedReader br = 
+				new BufferedReader(
+					new InputStreamReader(con.getInputStream()));
+						
+			   String input;
+						
+			   while ((input = br.readLine()) != null){
+				  System.out.println(input);
+			   }
+			   br.close();
+						
+			} catch (IOException e) {
+			   e.printStackTrace();
+			}
+				
 	   }
-	   br.close();
-				
-	} catch (IOException e) {
-	   e.printStackTrace();
-	}
-			
-       }
 		
    }
 	
