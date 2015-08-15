@@ -16,10 +16,11 @@ public class HttpsClient{
 	
    public static void main(String[] args)
    {
-        new HttpsClient().testIt();
+	    System.out.println("Param 0 URL:" + args[0]);
+        new HttpsClient().testIt(args[0]);
    }
 	
-   private void testIt(){
+   private void testIt(String paramURL){
 	   
 	// Create a trust manager that does not validate certificate chains
 	/*
@@ -62,8 +63,10 @@ public class HttpsClient{
 		return;  
 	  }
 	  
-      String https_url = "https://www.google.com/";
+      //String https_url = "https://www.google.com/";
 	  //String https_url = "https://dth298067l:7002/console/login/LoginForm.jsp";
+	  String https_url = "";
+	  https_url =paramURL;
 	  
       URL url;
       try {
