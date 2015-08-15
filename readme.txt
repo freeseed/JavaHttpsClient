@@ -1,5 +1,5 @@
 javac com/mkyong/client/HttpsClient.java
-
+--Add this in remote
 
 java com.mkyong.client.HttpsClient "https://www.google.com/"
 java com.mkyong.client.HttpsClient "https://dth298067l:7002/console/login/LoginForm.jsp"
@@ -31,23 +31,23 @@ http://www.herongyang.com/JDK/SSL-Socket-Make-Self-Signed-Certificates-Trusted.h
 
 keytool -import -v -trustcacerts -alias server-alias -file server.cer -keystore cacerts.jks -keypass changeit -storepass changeit 
 
-keytool -import -v -trustcacerts -alias localweblogic  -file "/d/Source Code/JavaHttpsClient/cerFromWebLogic.cer"  -keystore "/c/Program Files (x86)/Java/jre6/lib/security/cacerts" -keypass changeit -storepass changeit       // อันนี้คืออันที่ work ก่อนหน้านี้ใช้ไม่ได้เพราะ env PATH ดันมี jre6 อยู่ก่อนทำให้ ตอนเรียก java ไปเรียกใน path นั้น และแต่ตอนเรียก javac ไปยัง path \jdk1.6.0_45  ทำให้งง
+keytool -import -v -trustcacerts -alias localweblogic  -file "/d/Source Code/JavaHttpsClient/cerFromWebLogic.cer"  -keystore "/c/Program Files (x86)/Java/jre6/lib/security/cacerts" -keypass changeit -storepass changeit       // รร‘ยนยนร•รฉยคร—รรร‘ยนยทร•รจ work ยกรจรยนรยนรฉร’ยนร•รฉรฃยชรฉรครรจรคยดรฉร ยพรร’ร env PATH ยดร‘ยนรร• jre6 รรรรจยกรจรยนยทร“รฃรรฉ ยตรยนร รร•รยก java รคยปร รร•รยกรฃยน path ยนร‘รฉยน รกร…รรกยตรจยตรยนร รร•รยก javac รคยปรร‘ยง path \jdk1.6.0_45  ยทร“รฃรรฉยงยง
 
 
 C:\Program Files (x86)\Java\jre6\lib\security
 
-keytool -importcert -alias localweblogic -file "/d/Source Code/JavaHttpsClient/cerFromWebLogic.cer"   ใช้ได้ เมื่อ run มันจะให้ใส่ password ของ File keystore คือ changeit สองครั้ง แล้วตอบ yes อีกที
+keytool -importcert -alias localweblogic -file "/d/Source Code/JavaHttpsClient/cerFromWebLogic.cer"   รฃยชรฉรคยดรฉ ร รร—รจร run รร‘ยนยจรรฃรรฉรฃรรจ password ยขรยง File keystore ยคร—ร changeit รรยงยครร‘รฉยง รกร…รฉรยตรยบ yes รร•ยกยทร•
 
 
 git remote add origin https://github.com/freeseed/JavaHttpsClient
 
 
-******* สรุปขึ้นตอนการ ********
-1. ลง Weblogic โดยต้องเปลี่ยน location เป็น America ถึงจะลงผ่าน ตอนนี้ลงไว้ที่  C:\oracle\Middleware\wlserver_10.3 โดยจะมาพร้อม Self-signed Certificate ไว้แล้ว
-2. ใช้ Chrome Access หน้าแรกที่เป็น https https://dth298067l:7002/console/login/LoginForm.jsp  แล้ว Export Certificate ออกมา โดยใช้ Chrome Save เป็น XXXX.cer
-ทำการ import XXXX.cer เข้าไปยัง Default C:\Program Files (x86)\Java\jre6\lib\security\cacerts  ที่เป็น ตัว default ใช้ตัวนี้เพราะ มี Certificate ของ CA ดังๆอยู่แล้ว
-ในตัวอย่างถ้าเป็นการสร้าง file trustcert ใหม่ มันจะไม่มี Certificate ของ CA ดังๆอยู่
-3. ลองสร้าง Client โดยให้ระบุ
+******* รรรยปยขร–รฉยนยตรยนยกร’ร ********
+1. ร…ยง Weblogic รขยดรยตรฉรยงร ยปร…ร•รจรยน location ร ยปรงยน America ยถร–ยงยจรร…ยงยผรจร’ยน ยตรยนยนร•รฉร…ยงรครรฉยทร•รจ  C:\oracle\Middleware\wlserver_10.3 รขยดรยจรรร’ยพรรฉรร Self-signed Certificate รครรฉรกร…รฉร
+2. รฃยชรฉ Chrome Access รยนรฉร’รกรยกยทร•รจร ยปรงยน https https://dth298067l:7002/console/login/LoginForm.jsp  รกร…รฉร Export Certificate รรยกรร’ รขยดรรฃยชรฉ Chrome Save ร ยปรงยน XXXX.cer
+ยทร“ยกร’ร import XXXX.cer ร ยขรฉร’รคยปรร‘ยง Default C:\Program Files (x86)\Java\jre6\lib\security\cacerts  ยทร•รจร ยปรงยน ยตร‘ร default รฃยชรฉยตร‘รยนร•รฉร ยพรร’ร รร• Certificate ยขรยง CA ยดร‘ยงรฆรรรรจรกร…รฉร
+รฃยนยตร‘รรรรจร’ยงยถรฉร’ร ยปรงยนยกร’รรรรฉร’ยง file trustcert รฃรรรจ รร‘ยนยจรรครรจรร• Certificate ยขรยง CA ยดร‘ยงรฆรรรรจ
+3. ร…รยงรรรฉร’ยง Client รขยดรรฃรรฉรรยบร
 
 
 
